@@ -7,17 +7,12 @@ This project is an **AI-powered Attack Detection System** that utilizes **CatBoo
 ## Machine Learning Model
 - Uses **CatBoost Classifier** for training and classification
 - Performs **hyperparameter tuning** via GridSearchCV
+- Trained model is saved as `catboost_model.pkl`
+- Preprocessing is handled using `scaler.pkl` for consistent feature scaling
 
-## Dynamic Test Data Handling
-- Ensures compatibility between training and test datasets
-- Handles missing and extra features dynamically
-
-## Model Persistence
-- Saves the trained model (`catboost_model.pkl`) for later use
-- Stores the trained `StandardScaler` (`scaler.pkl`) for consistent feature scaling
-
-## Prediction Handling
-- Model is capable of making predictions even if 80% of the expected features are available, but accuracy may vary.
+## Dataset
+- The dataset (`final_dataset.csv`) is already preprocessed.
+- The model is capable of making predictions even if 80% of the expected features are available, though accuracy may vary.
 
 ## Installation
 ### Prerequisites
@@ -38,12 +33,17 @@ Ensure you have **Python 3.7+** installed along with the required dependencies.
    ```
 
 ## Usage
-1. **Prepare your dataset**: Ensure your CSV file (`final_dataset.csv`) is formatted correctly with a `label` column for classification.
+1. **Ensure required files are available**:
+   - `catboost_model.pkl` (trained model)
+   - `scaler.pkl` (preprocessing scaler)
+   - `final_dataset.csv` (preprocessed dataset)
+
 2. **Run the model training script**:
    ```sh
-   Network.py
+   python Network.py
    ```
    This will preprocess data, train the model, and save it as `catboost_model.pkl`.
+
 3. **Use the trained model for predictions**: Load the model and process new data dynamically.
 
 ## Requirements
@@ -66,8 +66,4 @@ pip install -r requirements.txt
 
 ## Author
 [Abhishek Anjana](https://github.com/Abhishek15112003)
-
-## License
-This project is licensed under the MIT License.
-```
 
