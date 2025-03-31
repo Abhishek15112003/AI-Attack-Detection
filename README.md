@@ -1,25 +1,23 @@
-```md
+
 # AI-Based Attack Detection System
 
 ## Overview
-This project is an **AI-powered Attack Detection System** that utilizes **CatBoost**, a gradient boosting algorithm, to classify network attacks. It preprocesses network traffic data, selects the most important features, and trains a model to detect and classify attacks accurately.
+This project is an **AI-powered Attack Detection System** that utilizes **CatBoost**, a gradient boosting algorithm, to classify network attacks. It preprocesses network traffic data and trains a model to detect and classify attacks accurately.
 
-## Features
-- **Preprocessing & Feature Engineering**: 
-  - Encodes categorical variables
-  - Standardizes numerical features
-  - Selects important features based on model-driven feature importance
-- **Machine Learning Model**:
-  - Uses **CatBoost Classifier** for training and classification
-  - Performs **hyperparameter tuning** via GridSearchCV
-- **Dynamic Test Data Handling**:
-  - Ensures compatibility between training and test datasets
-  - Handles missing and extra features dynamically
-- **Model Persistence**:
-  - Saves the trained model (`catboost_model.pkl`) for later use
-  - Stores the trained `StandardScaler` (`scaler.pkl`) for consistent feature scaling
-- **Prediction Handling**:
-  - Model is capable of making predictions even if 80% of the expected features are available, but accuracy may vary.
+## Machine Learning Model
+- Uses **CatBoost Classifier** for training and classification
+- Performs **hyperparameter tuning** via GridSearchCV
+
+## Dynamic Test Data Handling
+- Ensures compatibility between training and test datasets
+- Handles missing and extra features dynamically
+
+## Model Persistence
+- Saves the trained model (`catboost_model.pkl`) for later use
+- Stores the trained `StandardScaler` (`scaler.pkl`) for consistent feature scaling
+
+## Prediction Handling
+- Model is capable of making predictions even if 80% of the expected features are available, but accuracy may vary.
 
 ## Installation
 ### Prerequisites
@@ -32,13 +30,9 @@ Ensure you have **Python 3.7+** installed along with the required dependencies.
    cd AI-Attack-Detection
    ```
 
-2. **Create a virtual environment** (recommended):
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
 
-3. **Install required packages**:
+
+2. **Install required packages**:
    ```sh
    pip install -r requirements.txt
    ```
@@ -54,12 +48,12 @@ Ensure you have **Python 3.7+** installed along with the required dependencies.
 
 ## Requirements
 Ensure the following Python packages are installed:
-```txt
+```sh
 numpy
 pandas
 scikit-learn
 catboost
-```
+```  
 You can install them with:
 ```sh
 pip install -r requirements.txt
@@ -73,6 +67,7 @@ pip install -r requirements.txt
 ## Author
 [Abhishek Anjana](https://github.com/Abhishek15112003)
 
-
+## License
+This project is licensed under the MIT License.
 ```
 
