@@ -41,7 +41,7 @@ Ensure you have **Python 3.7+** installed along with the required dependencies.
 1. **Prepare your dataset**: Ensure your CSV file (`final_dataset.csv`) is formatted correctly with a `label` column for classification.
 2. **Run the model training script**:
    ```sh
-   python train_model.py
+   Network.py
    ```
    This will preprocess data, train the model, and save it as `catboost_model.pkl`.
 3. **Use the trained model for predictions**: Load the model and process new data dynamically.
