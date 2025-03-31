@@ -1,69 +1,78 @@
-# AI-Based Attack Detection
+```md
+# AI-Based Attack Detection System
 
 ## Overview
-This project is an AI-powered model that detects the type of cyber attack occurring in a network. The model uses machine learning techniques to analyze network traffic and classify attacks. The dataset is preprocessed, important features are selected, and a CatBoostClassifier is trained to achieve high accuracy in attack detection.
+This project is an **AI-powered Attack Detection System** that utilizes **CatBoost**, a gradient boosting algorithm, to classify network attacks. It preprocesses network traffic data, selects the most important features, and trains a model to detect and classify attacks accurately.
 
 ## Features
-- Loads and preprocesses a network attack dataset
-- Encodes categorical features and scales numerical features
-- Selects the most important features using feature importance analysis
-- Trains a **CatBoostClassifier** for attack classification
-- Hyperparameter tuning with GridSearchCV for optimal performance
-- Saves the trained model and scaler for future use
-- Supports dynamic test data preprocessing to handle missing columns
+- **Preprocessing & Feature Engineering**: 
+  - Encodes categorical variables
+  - Standardizes numerical features
+  - Selects important features based on model-driven feature importance
+- **Machine Learning Model**:
+  - Uses **CatBoost Classifier** for training and classification
+  - Performs **hyperparameter tuning** via GridSearchCV
+- **Dynamic Test Data Handling**:
+  - Ensures compatibility between training and test datasets
+  - Handles missing and extra features dynamically
+- **Model Persistence**:
+  - Saves the trained model (`catboost_model.pkl`) for later use
+  - Stores the trained `StandardScaler` (`scaler.pkl`) for consistent feature scaling
+- **Prediction Handling**:
+  - Model is capable of making predictions even if 80% of the expected features are available, but accuracy may vary.
 
 ## Installation
-To run this project, install the required dependencies using the following command:
+### Prerequisites
+Ensure you have **Python 3.7+** installed along with the required dependencies.
 
+### Setup
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/Abhishek15112003/AI-Attack-Detection.git
+   cd AI-Attack-Detection
+   ```
+
+2. **Create a virtual environment** (recommended):
+   ```sh
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install required packages**:
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+## Usage
+1. **Prepare your dataset**: Ensure your CSV file (`final_dataset.csv`) is formatted correctly with a `label` column for classification.
+2. **Run the model training script**:
+   ```sh
+   python train_model.py
+   ```
+   This will preprocess data, train the model, and save it as `catboost_model.pkl`.
+3. **Use the trained model for predictions**: Load the model and process new data dynamically.
+
+## Requirements
+Ensure the following Python packages are installed:
+```txt
+numpy
+pandas
+scikit-learn
+catboost
+```
+You can install them with:
 ```sh
 pip install -r requirements.txt
 ```
 
-## Usage
-### 1. Train the Model
-Ensure the dataset is available at the correct path, then run the training script:
+## Future Enhancements
+- Improve model accuracy using additional feature selection techniques.
+- Deploy the model as an API for real-time attack detection.
+- Integrate visualization tools for monitoring network traffic.
 
-```sh
-python Network.py
+## Author
+[Abhishek Anjana](https://github.com/Abhishek15112003)
+
+
 ```
 
-This will preprocess the data, train the model, and save it as `catboost_model.pkl`.
-
-### 2. Preprocess New Test Data
-To process new test data and make predictions:
-
-```python
-from model import preprocess_test_data, best_model
-import pandas as pd
-import pickle
-
-# Load scaler
-with open("scaler.pkl", "rb") as file:
-    scaler = pickle.load(file)
-
-# Load new test data
-new_data = pd.read_csv("path_to_test_data.csv")
-
-# Preprocess test data
-processed_data = preprocess_test_data(new_data, selected_features, scaler)
-
-# Make predictions
-predictions = best_model.predict(processed_data)
-print(predictions)
-```
-
-## Files
-- **model.py** - Main script for training and saving the model
-- **scaler.pkl** - Saved scaler for preprocessing test data
-- **catboost_model.pkl** - Trained machine learning model
-- **requirements.txt** - List of dependencies
-
-## Dependencies
-- Python 3.x
-- Pandas
-- NumPy
-- Scikit-learn
-- CatBoost
-
-## License
-This project is open-source .
